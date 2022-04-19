@@ -1,0 +1,173 @@
+<!-- 
+    Source of icon: https://www.stockio.com/
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>路徑控制器 面板</title>
+    <style type="text/css">
+        :root {
+            --primary-color: white;
+            --primary-bg-color: #535353;
+            --secondary-bg-color: #424242;
+            --primary-border-color: #363636;
+            --primary-border-bottom-color: #4d4d4d;
+            --secondary-border-bottom-color: #535353;
+        }
+        .lightMode {
+            --primary-color: black;
+            --primary-bg-color: #f0f0f0;
+            --secondary-bg-color: #dbdbdb;
+            --primary-border-color: #d2d2d2;
+            --primary-border-bottom-color: #e0e0e0;
+            --secondary-border-bottom-color: #f0f0f0;
+        }
+        .panel {
+            color: var(--primary-color);
+            background-color: var(--secondary-bg-color);
+            border-radius: 5px 5px 0 0;
+            width: 350px;
+            border: 1px solid var(--primary-border-color);
+        }
+        .topBar {
+            display: flex;
+            justify-content: right;
+            border-bottom: 1px solid var(--primary-border-color);
+        }
+        .tabBar {
+            display: flex;
+            justify-content: stretch;
+        }
+
+        .tabName {
+            font-size: 1em;
+            background-color: var(--primary-bg-color);
+            padding: 0.5em;
+            border-top: 1px solid var(--primary-border-color);
+            border-right: 2px solid var(--primary-border-color);
+            border-bottom: 2px solid var(--secondary-border-bottom-color);
+            width: 30%;
+            text-align: center;
+        }
+        .menu {
+            text-align: right;
+            width: 70%;
+            border-bottom: 2px solid var(--primary-border-color);
+        }
+        .topBar img, .menu img {
+            filter: invert(100%);
+        }
+        .leftCollapse img { width: 12px; }
+        .closeBtn img { width: 13px; }
+        .closeBtn {
+            margin-top: 1px;
+        }
+        .leftCollapse, .closeBtn {
+            padding: 0 5px;
+        }
+        .menu img {
+            width: 35px;
+        }
+        #content {
+            padding: 0.75em;
+            background-color: var(--primary-bg-color);
+        }
+        #content h3, .content p {
+            margin: 0;
+        }
+        #content h3 {
+            font-size: 1em;
+            margin-bottom: 0.75em;
+        }
+        #content p {
+            margin-top: 0.5em;
+        }
+        .group1, .group2 {
+            display: flex;
+            justify-content: space-evenly;
+            padding: 0.5em 0;
+            border-bottom: 2px solid var(--primary-border-bottom-color);
+        }
+        .tools img {
+            width: 32px;
+            padding: 5px;
+        }
+        .leftCollapse img:hover,
+        .closeBtn img:hover,
+        .menu img:hover,
+        .tabName:hover,
+        .tools img:hover {
+            cursor: pointer;
+        }
+        .tools img:hover {
+            background-color: rgba(183, 183, 183, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="panel">
+        <div class="topBar">
+            <div class="leftCollapse">
+                <img id="leftCollapseIcon" src="images/left_double_arrow_btn.png" alt="" />
+            </div>
+            <div class="closeBtn">
+                <img id="closeIcon" src="images/close_btn.png" alt="" />
+            </div>
+        </div>
+        <div class="tabBar">
+            <div class="tabName">路徑控制器</div>
+            <div class="menu">
+                <img id="menuIcon" src="images/hamburger_menu.svg" alt="">
+            </div>
+        </div>
+        <div id="content">
+            <h3>８點已選取</h3>
+            <div class="tools">
+                <div class="group1">
+                    <img src="images/1.svg" alt="">
+                    <img src="images/2.svg" alt="">
+                    <img src="images/3.svg" alt="">
+                    <img src="images/4.svg" alt="">
+                    <img src="images/5.svg" alt="">
+                </div>
+                <div class="group2">
+                    <img src="images/6.svg" alt="">
+                    <img src="images/7.svg" alt="">
+                    <img src="images/8.svg" alt="">
+                    <img src="images/9.svg" alt="">
+                    <img src="images/10.svg" alt="">
+                </div>
+            </div>
+            <p>２路徑(２個封閉、０個開放)</p>
+        </div>
+    </div>
+
+    <p>
+        <button id="toggleBtn">切換風格</button>
+    </p>
+
+    <script type="text/javascript">
+            const toggle = document.getElementById('toggleBtn');
+            const target = document.body;
+            const iconOne = document.getElementById('leftCollapseIcon');
+            const iconTwo = document.getElementById('closeIcon');
+            const iconThree = document.getElementById('menuIcon');
+
+            toggle.onclick = function() {
+                target.classList.toggle('lightMode');
+                if (iconOne.style.filter === 'none') {
+                    iconOne.style.filter = 'invert(100%)';
+                    iconTwo.style.filter = 'invert(100%)';
+                    iconThree.style.filter = 'invert(100%)';
+                } else {
+                    iconOne.style.filter =  'none';
+                    iconTwo.style.filter =  'none';
+                    iconThree.style.filter =  'none';
+                }
+            }
+    </script>
+</body>
+</html>
